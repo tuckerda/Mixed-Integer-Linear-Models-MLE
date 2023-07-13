@@ -13,7 +13,6 @@ This repository has simulation scripts for the paper "Maximum Likelihood Estimat
   year={Forthcoming},
   }
 ```  
-## References
 This work contains code that has been adapted from the following:
 
 1. X.-W. Chang, “MILES: MATLAB package for solving mixed integer least squares problems.” http://www.cs.mcgill.ca/∼chang/software/MILES.php, 2006. Last updated: Dec., 2022.
