@@ -13,7 +13,7 @@ This repository has simulation scripts for the paper "Maximum Likelihood Estimat
   year={Forthcoming},
   }
 ```  
-This work contains code that has been adapted from the following:
+This work contains code adapted from the following:
 
 1. X.-W. Chang, “MILES: MATLAB package for solving mixed integer least squares problems.” http://www.cs.mcgill.ca/∼chang/software/MILES.php, 2006. Last updated: Dec., 2022.
 2. C. Schnorr and M. Euchner, “Lattice basis reduction: Improved practical algorithms and solving subset sum problems,” Math. Prog., vol. 66, p. 181–199, 1994
