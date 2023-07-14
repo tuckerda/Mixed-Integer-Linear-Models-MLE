@@ -1,8 +1,8 @@
-function [CRB,CRB_s] = crb_c(X,N,aoa,s,n_var)
+function [CRB,CRB_s] = crb_c(positions,N,aoa,s,n_var)
 % Cramér–Rao bound for DoA estimation under the conditional (deterministic) signal model.
 %
 % Input:
-%	X:   Sensor positions (in units of half-wavelengths) of L-element array in n-dimensional space (n=1,2,3), [L n]
+%	positions:   Sensor positions (in units of half-wavelengths) of L-element array in n-dimensional space (n=1,2,3), [L n]
 %   N: Number of snapshots
 %   aoa: Angles of arrival, in radians, of K sources, [1 K] for linear arrays or [2 K] for planar/volume arrays
 %        % Angles specified as [ azimuth (from y-axis), elevation ]
@@ -19,7 +19,7 @@ function [CRB,CRB_s] = crb_c(X,N,aoa,s,n_var)
 % [3] P. Stoica and A. Nehorai, "Performance study of conditional and unconditional direction-of-arrival estimation,"
 %     IEEE Tran. Acoust. Speech and Signal Process., vol. 38, no. 10, pp. 1783-1795, Oct. 1990, doi: 10.1109/29.60109.
 
-[L,n] = size(X);
+[L,n] = size(positions);
 K = size(aoa,2);
 
 % If s is size [K,1], assume equal signal power for all snapshots
@@ -28,7 +28,7 @@ if (N>1 && numel(s)==K)
     s = repmat(s,[1 N]);
 end
 
-[A,dA,dA_s] = array_steering(X,aoa);
+[A,dA,dA_s] = array_steering(positions,aoa);
 P = 1/N*(s*s');
 Proj = eye(L) - A*inv(A'*A)*A';
 CRB = n_var/N/2 * inv( real( dA'*Proj*dA .* (kron(ones([n,n]),P)) ) );
