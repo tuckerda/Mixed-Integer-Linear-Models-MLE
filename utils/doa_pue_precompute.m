@@ -1,4 +1,4 @@
-function [pre] = doa_precompute(pre)
+function [pre] = doa_pue_precompute(pre)
 [m,n] = size(pre.A);
 if (n==2||n==3)
     C_Grid = cell(n,1);
