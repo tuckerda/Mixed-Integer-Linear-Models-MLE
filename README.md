@@ -1,7 +1,7 @@
 ## Maximum Likelihood Estimation in Mixed Integer Linear Models
-* David Tucker, The Ohio State University (tucker.431@osu.edu)
+* David Tucker, Ohio State University (tucker.431@osu.edu)
 * Shen Zhao, Stanford University (shenzhao@stanford.edu)
-* Lee C. Potter, The Ohio State University (potter.36@osu.edu)
+* Lee C. Potter, Ohio State University (potter.36@osu.edu)
 
 This repository has simulation scripts for the paper "Maximum Likelihood Estimation in Mixed Integer Linear Models."
 ```
