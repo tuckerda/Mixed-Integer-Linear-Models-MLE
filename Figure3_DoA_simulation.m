@@ -73,7 +73,7 @@ for ii=1:length(SNR_db)
 
     % DoA estimation through maximum likelihood phase unwrapping
     precompute = milm_mle_precompute(Ac,Mc,V,Prec);
-    precompute = doa_precompute(precompute);
+    precompute = doa_pue_precompute(precompute);
     for k=1:num_trials
         omega_pml(:,ii,k) = doa_pue(Ac,phi_hat(:,k),Mc,V,Prec,precompute);
     end
