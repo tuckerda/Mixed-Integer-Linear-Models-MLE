@@ -27,7 +27,7 @@ end
 % Find a particular solution to unconstrained problem
 [omega_star,~,pre] = milm_mle(Ac,yc,Mc,V,Prec,1,pre);
 if ~isfield(pre,'K')
-    pre = doa_precompute(pre);
+    pre = doa_pue_precompute(pre);
 end
 % Wrap the solution to a parallelotope centered on the origin
 omega_star = omega_star - pre.V*floor(pre.Vinv*omega_star + 1/2);
