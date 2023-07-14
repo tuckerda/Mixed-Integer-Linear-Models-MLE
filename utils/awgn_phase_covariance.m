@@ -4,7 +4,7 @@ function [Sigma] = awgn_phase_covariance(pair_idx,SNR,N)
 %
 % Input:
 %   pair_idx: Index pairs from L-element array, e.g., from nchoosek(1:L,2)
-%	SNR: Signal-to-noise ratio of the array output (linear)
+%   SNR: Signal-to-noise ratio of the array output (linear)
 %   N: Number of snapshots
 %
 % Output:
