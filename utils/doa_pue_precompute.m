@@ -1,6 +1,8 @@
 function [pre] = doa_pue_precompute(pre)
 [m,n] = size(pre.A);
-if (n==2||n==3)
+if (n==2)
+    pre.K = [ -1,0,1,-1,0,1,-1,0,1; -1,-1,-1,0,0,0,1,1,1];
+elseif (n==3)
     C_Grid = cell(n,1);
     for i = 1:n
         C_Grid(i) = {[-1,1]};
