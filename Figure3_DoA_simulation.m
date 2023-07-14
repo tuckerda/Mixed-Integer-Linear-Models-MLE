@@ -1,5 +1,5 @@
-% Simulate planar array output to comare DoA estimation performance of grid search 
-% maximum likelihood estimation from complex data to maximum likelihood phase unwrapping estimation.
+% Simulate planar array output to compare DoA estimation performance of  maximum likelihood
+% phase unwrapping estimation to grid search-based maximum likelihood estimation with complex data
 %
 % Copyright (c) 2023, David Tucker, Shen Zhao, Lee C. Potter
 % All rights reserved.
@@ -71,14 +71,14 @@ for ii=1:length(SNR_db)
         phi_hat(:,k) = tril_vec(angle(Ry(:,:,k)));
     end
 
-    % Maximum likelihood phase unwrapping
+    % DoA estimation through maximum likelihood phase unwrapping
     precompute = milm_mle_precompute(Ac,Mc,V,Prec);
     precompute = doa_precompute(precompute);
     for k=1:num_trials
         omega_pml(:,ii,k) = doa_pue(Ac,phi_hat(:,k),Mc,V,Prec,precompute);
     end
 
-    % Grid search-based MLE using complex data
+    % Grid search-based maximum likelihood DoA estimation using complex data
     parfor k=1:num_trials
         omega_iqml(:,ii,k) =  doa_mle(Ry(:,:,k),positions,omega_scan);
     end
