@@ -1,4 +1,4 @@
-function [omega_hat,pre] = doa_pue(Ac,yc,Mc,V,Prec,pre)
+function [x_mlpue,pre] = doa_pue(Ac,yc,Mc,V,Prec,pre)
 % Estimates direction of arrival (DoA) with maximum likelihood phase unwrapping.
 % Solves a closest lattice point problem and projects the solution to the set of feasible DoA.
 %
@@ -11,7 +11,7 @@ function [omega_hat,pre] = doa_pue(Ac,yc,Mc,V,Prec,pre)
 %   pre: Optional struct of precomputed quantities.
 %
 % Output:
-%   omega_hat: Optimal solution for real n-by-1 x
+%   x_mlpue: Optimal solution for real n-by-1 x
 %
 % Copyright (c) 2023, David Tucker, Shen Zhao, Lee C. Potter
 % All rights reserved.
@@ -25,27 +25,27 @@ if ~(n==1||n==2||n==3)
 end
 
 % Find a particular solution to unconstrained problem
-[omega_star,~,pre] = milm_mle(Ac,yc,Mc,V,Prec,1,pre);
+[x_hat,~,pre] = milm_mle(Ac,yc,Mc,V,Prec,1,pre);
 if ~isfield(pre,'K')
     pre = doa_pue_precompute(pre);
 end
 % Wrap the solution to a parallelotope centered on the origin
-omega_star = omega_star - pre.V*floor(pre.Vinv*omega_star + 1/2);
+x_hat = x_hat - pre.V*floor(pre.Vinv*x_hat + 1/2);
 
 % Project the unconstrained solution to the feasible set
 if n==1
-    omega_hat = omega_star;
-    omega_hat(abs(omega_hat) > 1) = sign(omega_hat(abs(omega_hat) > 1));
+    x_mlpue = x_hat;
+    x_mlpue(abs(x_mlpue) > 1) = sign(x_mlpue(abs(x_mlpue) > 1));
 else % (n==2||n==3)
-    omega_shifted = omega_star - V*pre.K;
+    x_shifted = x_hat - V*pre.K;
     if n==2
-        omega_proj = omega_shifted./max(1,vecnorm(omega_shifted,2,1));
+        x_proj = x_shifted./max(1,vecnorm(x_shifted,2,1));
     else % n==3
-        omega_proj = omega_shifted./vecnorm(omega_shifted,2,1);
+        x_proj = x_shifted./vecnorm(x_shifted,2,1);
     end
-    distance = omega_shifted - omega_proj;
+    distance = x_shifted - x_proj;
     cost = sum(distance.^2,1);
     [~, idx] = min(cost);
-    omega_hat = omega_proj(:,idx);
+    x_mlpue = x_proj(:,idx);
 end
 end
