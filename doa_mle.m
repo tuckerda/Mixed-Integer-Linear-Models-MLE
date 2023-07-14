@@ -1,9 +1,9 @@
-function [omega_ml] = doa_mle(Ry,X,omega_scan)
+function [omega_ml] = doa_mle(Ry,positions,omega_scan)
 % Maximum likelihood DoA estimation for linear/planar array by search over increasingly fine grids
 %
 % Input:
 %	Ry: Sample covariance matrix
-%	X: Element positions of L-element array, in units of half-wavelengths, in n-dimensional space, [L,n]
+%	positions: Element positions of L-element array, in units of half-wavelengths, in n-dimensional space, [L,n]
 %   omega_scan: Cell of search grids
 %
 % Output:
@@ -15,7 +15,7 @@ function [omega_ml] = doa_mle(Ry,X,omega_scan)
 % This source code is licensed under the MIT license found in the
 % LICENSE file in the root directory of this source tree.
 
-n = size(X,2);
+n = size(positions,2);
 if ~(n==1||n==2)
     error("The parameter size n is invalid.");
 end
@@ -28,7 +28,7 @@ else
 end
 for k = 1:Nres
     % Form steering vectors for candidate directions
-    A = exp(1i*pi*X*scan_current);
+    A = exp(1i*pi*positions*scan_current);
     % Evaluate candidate directions
     NLL = -real(sum(conj(A).*(Ry*A)));
     [~,min_idx] = min(NLL);
