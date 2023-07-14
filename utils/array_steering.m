@@ -1,8 +1,8 @@
-function [A,dA,dA_s] = array_steering(X,aoa)
+function [A,dA,dA_s] = array_steering(positions,aoa)
 % Generate array steering vectors
 %
 % Input
-%	X: Sensor positions (in units of half-wavelengths) of L-element array in n-dimensional space (n=1,2,3), [L n]
+%	positions: Sensor positions (in units of half-wavelengths) of L-element array in n-dimensional space (n=1,2,3), [L n]
 %   aoa: Angles of arrival, in radians, of K sources, [1 K] for linear arrays or [2 K] for planar/volume arrays
 %        % Angles specified as [ azimuth (from y-axis), elevation ]
 %
@@ -16,25 +16,25 @@ function [A,dA,dA_s] = array_steering(X,aoa)
 % [1] Mailaender, L. Bounds for 2-D angle-of-arrival estimation with separate and joint processing.
 %     Eurasip J. Adv. Signal Process. 2011. 1-11. 10.1186/1687-6180-2011-5.
 
-[L,n] = size(X);
+[L,n] = size(positions);
 K = size(aoa,2);
 omega = ang2dir(aoa,n);
-A = exp(1i*pi*X*omega)  ;
+A = exp(1i*pi*positions*omega)  ;
 
 % Optionally, compute the steering vector partial derivatives
 if nargout > 1
     switch n
         case 1
-            dA = A.*( 1i*pi*X * cos(aoa) );
-            dA_s = A.*(1i*pi*X);
+            dA = A.*( 1i*pi*positions * cos(aoa) );
+            dA_s = A.*(1i*pi*positions);
         case 2
-            dA = A.*(1i*pi*X*[-sin(aoa(1,:)).*cos(aoa(2,:)); -cos(aoa(1,:)).*cos(aoa(2,:)) ] );
-            dA = [dA, A.*(1i*pi*X*[cos(aoa(1,:)).*(-sin(aoa(2,:))); sin(aoa(1,:)).*(-sin(aoa(2,:))) ] ) ];
-            dA_s =  [A.*(1i*pi*X(:,1)), A.*(1i*pi*X(:,2))];
+            dA = A.*(1i*pi*positions*[-sin(aoa(1,:)).*cos(aoa(2,:)); -cos(aoa(1,:)).*cos(aoa(2,:)) ] );
+            dA = [dA, A.*(1i*pi*positions*[cos(aoa(1,:)).*(-sin(aoa(2,:))); sin(aoa(1,:)).*(-sin(aoa(2,:))) ] ) ];
+            dA_s =  [A.*(1i*pi*positions(:,1)), A.*(1i*pi*positions(:,2))];
         case 3
-            dA = A.*(1i*pi*X*[-sin(aoa(1,:)).*cos(aoa(2,:)); -cos(aoa(1,:)).*cos(aoa(2,:)); sin(aoa(2,:)) ] );
-            dA = [dA, A.*(1i*pi*X*[cos(aoa(1,:)).*(-sin(aoa(2,:))); sin(aoa(1,:)).*(-sin(aoa(2,:))); cos(aoa(2,:)) ] ) ];
-            dA_s =  [A.*(1i*pi*X(:,1)), A.*(1i*pi*X(:,2)), A.*(1i*pi*X(:,3))];
+            dA = A.*(1i*pi*positions*[-sin(aoa(1,:)).*cos(aoa(2,:)); -cos(aoa(1,:)).*cos(aoa(2,:)); sin(aoa(2,:)) ] );
+            dA = [dA, A.*(1i*pi*positions*[cos(aoa(1,:)).*(-sin(aoa(2,:))); sin(aoa(1,:)).*(-sin(aoa(2,:))); cos(aoa(2,:)) ] ) ];
+            dA_s =  [A.*(1i*pi*positions(:,1)), A.*(1i*pi*positions(:,2)), A.*(1i*pi*positions(:,3))];
     end
 end
 end
