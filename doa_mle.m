@@ -1,5 +1,5 @@
 function [omega_ml] = doa_mle(Ry,X,omega_scan)
-% Maximum likelihood DoA estimation for linear/planar array by searching over increasingly fine grids
+% Maximum likelihood DoA estimation for linear/planar array by search over increasingly fine grids
 %
 % Input:
 %	Ry: Sample covariance matrix
