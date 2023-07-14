@@ -2,7 +2,7 @@ function [CRB,CRB_s] = crb_c(positions,N,aoa,s,n_var)
 % Cramér–Rao bound for DoA estimation under the conditional (deterministic) signal model.
 %
 % Input:
-%	positions:   Sensor positions (in units of half-wavelengths) of L-element array in n-dimensional space (n=1,2,3), [L n]
+%   positions:   Sensor positions (in units of half-wavelengths) of L-element array in n-dimensional space (n=1,2,3), [L n]
 %   N: Number of snapshots
 %   aoa: Angles of arrival, in radians, of K sources, [1 K] for linear arrays or [2 K] for planar/volume arrays
 %        % Angles specified as [ azimuth (from y-axis), elevation ]
