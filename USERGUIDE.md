@@ -24,13 +24,13 @@ The following is an annotated list of the routines included in this repository.
   * ```doa_pue```     Estimates direction of arrival (DoA) with maximum likelihood phase unwrapping. 
   * ```doa_mle```     Maximum likelihood DoA estimation for linear/planar array by grid search using the complex data
 * ```form_Lambda_basis```     Computes a basis for the lattice $\Lambda$
-* ```sils_reduction_Q```     For sphere decoding; redistributed, with modification, from X.-W Chang, et al. 
-* ```sils_search```     For sphere decoding: redistributed from X.-W Cang, et al. 
+* ```sils_reduction_Q```     Lattice basis reduction, redistributed, with modification, from [MILES package of X.-W Chang, et al.](https://www.cs.mcgill.ca/~chang/MILES_routine1.php)
+* ```sils_search```     Depth first sphere decoding, redistributed from [MILES package of X.-W Chang, et al.](https://www.cs.mcgill.ca/~chang/MILES_routine1.php) 
 * Selected utilities
   * ```lcms.m```     Finds column-wise positive least common multiple of the non-infinity, non-zero elements in a rational matrix.
   * ```LLLReduce``` Implementation of the Lenstra-Lenstra-Lov\'{a}sz (LLL) lattice basis reduction algorithm of Lenstra et al., 1982, as described in  Wubben et al., 2004. 
   * ```awgn_phase_covariance```	Constructs the approximate covariance matrix for phase-difference pairs of $L$ complex-valued observation with iid complex-Gaussian noise
-  * ```lenum```			Find the shortest vector of a lattice using the method by Schnorr & Euchner 1994, as implemented by Christian Chapman 2018. See https://github.com/enthdegree/lenum.m
+  * ```lenum```			Find the shortest vector of a lattice using the method by Schnorr & Euchner 1994, redistributed from [implementation by Christian Chapman](https://github.com/enthdegree/lenum.m). 
   * ```milm_mle_precompute```	Pre-compute quantities used by ```milm_mle```
   * ```tril_vec```		Returns vector of the lower triangular elements of a square matrix.
   * ```wrapping_error_bounds```	Computes upper and lower bounds on the probably of incorrectly detecting the integer unknowns, $\mathbf{k}.$
