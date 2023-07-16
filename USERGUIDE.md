@@ -1,6 +1,6 @@
 # Abbreviated User Guide
 
-This repository contains MATLAB code and simulation scripts that accompany the letter "Maximum Likelihood Estimation in Mixed Integer Linear Models." The letter considers a linear model with an observation vector $\mathbf{y} \in \mathbb{R}^m$ that is related to parameter vectors $\mathbf{x} \in \mathbb{R}^n$ and $\mathbf{k} \in \mathbb{Z}^m$ as
+This repository contains MATLAB code and simulation scripts that accompany the paper "Maximum Likelihood Estimation in Mixed Integer Linear Models." In the paper, we consider a linear model with an observation vector $\mathbf{y} \in \mathbb{R}^m$ that is related to parameter vectors $\mathbf{x} \in \mathbb{R}^n$ and $\mathbf{k} \in \mathbb{Z}^m$ as
 
 $$  \mathbf{y} =  \mathbf{A x} + \mathbf{M} \mathbf{k} + \mathbf{u},$$
 
@@ -11,11 +11,9 @@ The primary function in the repository is `milm_mle`, a routine for maximum like
 
 ```[x_hat,k_hat,pre] = milm_mle(Ac,yc,Mc,V,Prec,Ns,pre)```
 
-In the code in this repository, the observations are not assumed to be pre-whitened, and we therefore use the suffix "c" in the input variable names `yc,` `Ac,` `Mc` to denote the unwhitened versions of $y$, $A$, and $M,$ respectively, from the linear model above. The unwhitened noise has inverse covariance matrix `Prec`. The matrix input `Ac` has full column rank, and `Mc` is invertible; both `Ac` and `Mc` must have rational entries.
+In this repository, the observations are not assumed to be pre-whitened, and we therefore use the suffix "c" in the input variable names `yc,` `Ac,` and `Mc` to denote correspondence to the unwhitened versions of $\mathbf{y}$, $\mathbf{A}$, and $\mathbf{M}$ from the linear model above, respectively. The input `Prec` is the inverse covariance matrix of the unwhitend noise. The matrix input `Ac` has full column rank, and `Mc` is invertible; both `Ac` and `Mc` must have rational entries. The input `V` is a rational $n \times n$ matrix that provides a basis for $\Lambda$, the lattice that describes the periodicity of the likelihood in $\mathbf{x}$. A basis for $\Lambda$ can be constructed as `V = form_Lambda_basis(Ac,Mc).`
 
-The $n \times n$ real-valued matrix $\mathbf{V}$ provides a basis for $\Lambda$, the lattice that describes the periodicity of the likelihood in $\mathbf{x}$. A basis for $\Lambda$ is constructed as `V = form_Lambda_basis(Ac,Mc).`
-
-Note that multiple values of $\mathbf{x}$ and $\mathbf{k}$ providing large likelihood scores can be returned from `milm_mle` by choosing integer-valued input `Ns` that is greater than one.
+Note that multiple values of $\mathbf{x}$ and $\mathbf{k}$ providing large likelihood scores can be returned from `milm_mle` by choosing integer-valued input `Ns` that is greater than one. 
 
 For applications in which an estimator is sought for many instances with the same `Ac`, `Mc,` and `Prec`, an input data structure can be precomputed via `milm_mle_precompute`. This structure can then be used repeatedly for all calls to `milm_mle`.
 
