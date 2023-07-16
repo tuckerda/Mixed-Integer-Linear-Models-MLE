@@ -1,10 +1,10 @@
 # Abbreviated User Guide
 
-This repository contains MATLAB code and simulation scripts that accompany the paper "Maximum Likelihood Estimation in Mixed Integer Linear Models." In the paper, we consider a linear model with an observation vector $\mathbf{y} \in \mathbb{R}^m$ that is related to parameter vectors $\mathbf{x} \in \mathbb{R}^n$ and $\mathbf{k} \in \mathbb{Z}^m$ as
+This repository contains MATLAB code and simulation scripts for the paper "Maximum Likelihood Estimation in Mixed Integer Linear Models." In the paper, we consider a linear model with an observation vector $\mathbf{y} \in \mathbb{R}^m$ that is related to parameter vectors $\mathbf{x} \in \mathbb{R}^n$ and $\mathbf{k} \in \mathbb{Z}^m$ as
 
 $$  \mathbf{y} =  \mathbf{A x} + \mathbf{M} \mathbf{k} + \mathbf{u},$$
 
-with full column rank $\mathbf{A}\in \mathbb{R}^{m \times n}$, nonsingular $\mathbf{M} \in \mathbb{R}^{m \times m}$, and zero-mean Gaussian noise $\mathbf{u}  \in \mathbb{R}^m$. For brevity and simplicity, the observation vector $\mathbf{y}$ in the accompanying letter is assumed to have been whitened, and thus $\mathbf{u}$ has covariance matrix $\mathbf{I}$. 
+with full column rank $\mathbf{A}\in \mathbb{R}^{m \times n}$, nonsingular $\mathbf{M} \in \mathbb{R}^{m \times m}$, and zero-mean Gaussian noise $\mathbf{u}  \in \mathbb{R}^m$. For brevity, the observation vector $\mathbf{y}$ in the accompanying letter is assumed to have been whitened, and thus $\mathbf{u}$ has covariance matrix $\mathbf{I}$. 
 
 ## A Routine for Maximum Likelihood Parameter Estimation in Mixed Integer Linear Models
 The primary function in the repository is `milm_mle`, a routine for maximum likelihood (ML) parameter estimation in mixed integer linear models. The function is called as
