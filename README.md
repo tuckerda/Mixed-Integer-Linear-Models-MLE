@@ -3,7 +3,7 @@
 * Shen Zhao, Stanford University (shenzhao@stanford.edu)
 * Lee C. Potter, Ohio State University (potter.36@osu.edu)
 
-This repository contains Matlab code and simulation scripts for the paper "Maximum Likelihood Estimation in Mixed Integer Linear Models."  If you find our work useful, please use the following citation: 
+This repository contains MATLAB code and simulation scripts for the paper "Maximum Likelihood Estimation in Mixed Integer Linear Models."  If you find our work useful, please use the following citation: 
 
 ```
 @ARTICLE{TuckerSPL2023,
