@@ -24,9 +24,9 @@ The following is an annotated list of the routines included in this repository.
   * `doa_pue`     Estimates direction of arrival (DoA) with maximum likelihood phase unwrapping. 
   * `doa_mle`     Maximum likelihood DoA estimation for linear/planar array by grid search using the complex data
 * `form_Lambda_basis`     Computes a basis for the lattice $\Lambda$
-* `sils_reduction_Q`     Lattice basis reduction, redistributed, with modification, from [MILES package by X.-W Chang, et al.](https://www.cs.mcgill.ca/~chang/MILES_routine1.php)
-* `sils_search`     Depth first sphere decoding, redistributed from [MILES package by X.-W Chang, et al.](https://www.cs.mcgill.ca/~chang/MILES_routine1.php) 
 * Selected utilities
+  * `sils_reduction_Q`     Lattice basis reduction, redistributed, with modification, from [MILES package by X.-W Chang, et al.](https://www.cs.mcgill.ca/~chang/MILES_routine1.php)
+  * `sils_search`     Depth first sphere decoding, redistributed from [MILES package by X.-W Chang, et al.](https://www.cs.mcgill.ca/~chang/MILES_routine1.php) 
   * `lcms.m`     Finds column-wise positive least common multiple of the non-infinity, non-zero elements in a rational matrix.
   * `LLLReduce` Implementation of the Lenstra-Lenstra-Lovasz (LLL) lattice basis reduction algorithm of Lenstra et al., 1982, as described in  Wubben et al., 2004. 
   * `awgn_phase_covariance`	Constructs the approximate covariance matrix for phase-difference pairs of $L$ complex-valued observation with iid complex-Gaussian noise
