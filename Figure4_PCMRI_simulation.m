@@ -7,7 +7,7 @@
 % LICENSE file in the root directory of this source tree. 
 
 %%
-clearvars;close all
+clearvars;close all;addpath("./utils/");
 L=4;%four-point encoding
 m = L*(L-1)/2; % Number of phase difference pairs
 num_trials=10;% (=1e3 for figure)
