@@ -11,7 +11,7 @@ The primary function in the repository is `milm_mle`, a routine for maximum like
 
 ```[x_hat,k_hat,pre] = milm_mle(Ac,yc,Mc,V,Prec,Ns,pre)```
 
-In this repository, the observations are not assumed to be pre-whitened, and we therefore use the suffix "c" in the input variable names `yc,` `Ac,` and `Mc` to denote correspondence to the unwhitened versions of $\mathbf{y}$, $\mathbf{A}$, and $\mathbf{M}$ from the linear model above, respectively. The input `Prec` is the inverse covariance matrix of the unwhitend noise. The matrix input `Ac` has full column rank, and `Mc` is invertible; both `Ac` and `Mc` must have rational entries. The input `V` is a rational $n \times n$ matrix that provides a basis for $\Lambda$, the lattice that describes the periodicity of the likelihood in $\mathbf{x}$. A basis for $\Lambda$ can be constructed as `V = form_Lambda_basis(Ac,Mc).`
+In this repository, the observations are not assumed to be pre-whitened, and we therefore use the suffix "c" in the input variable names `yc,` `Ac,` and `Mc` to denote correspondence to the unwhitened versions of $\mathbf{y}$, $\mathbf{A}$, and $\mathbf{M}$ from the linear model above, respectively. The input `Prec` is the inverse covariance matrix of the unwhitend noise. The matrix input `Ac` has full column rank, and `Mc` is invertible; both `Ac` and `Mc` must have rational entries. The input `V` is a rational $n \times n$ matrix that provides a basis for $\Lambda$, the lattice that describes the periodicity of the likelihood in $\mathbf{x}$. A basis for $\Lambda$ can be constructed as `V = Lambda_basis(Ac,Mc).`
 
 Note that multiple values of $\mathbf{x}$ and $\mathbf{k}$ providing large likelihood scores can be returned from `milm_mle` by choosing integer-valued input `Ns` that is greater than one. 
 
@@ -23,7 +23,8 @@ The following is an annotated list of the routines included in this repository.
 * `Figure3_DoA_simulation` Reproduces direction of arrival estimation example found in Figure 3 of the referenced _IEEE Signal Processing Letters_ paper.
   * `doa_pue`     Estimates direction of arrival (DoA) with maximum likelihood phase unwrapping. 
   * `doa_mle`     Maximum likelihood DoA estimation for linear/planar array by grid search using the complex data
-* `form_Lambda_basis`     Computes a basis for the lattice $\Lambda$
+* `Figure4_PCMRI_simulation` Reproduces PC-MRI example found in Figure 4 of the referenced _IEEE Signal Processing Letters_ paper.
+* `Lambda_basis`     Computes a basis for the lattice $\Lambda$
 * Selected utilities
   * `sils_reduction_Q`     Lattice basis reduction, redistributed, with modification, from [MILES package by X.-W Chang, et al.](https://www.cs.mcgill.ca/~chang/MILES_routine1.php)
   * `sils_search`     Depth-first sphere decoding, redistributed from [MILES package by X.-W Chang, et al.](https://www.cs.mcgill.ca/~chang/MILES_routine1.php) 
@@ -33,4 +34,4 @@ The following is an annotated list of the routines included in this repository.
   * `lenum`			Find the shortest vector of a lattice using the method by Schnorr & Euchner 1994, redistributed from [implementation by Christian Chapman](https://github.com/enthdegree/lenum.m). 
   * `milm_mle_precompute`	Pre-compute quantities used by `milm_mle`
   * `tril_vec`		Returns vector of the lower triangular elements of a square matrix.
-  * `wrapping_error_bounds`	Computes upper and lower bounds on the probably of incorrectly detecting the integer unknowns, $\mathbf{k}.$
+  * `Pc_bounds`	Computes upper and lower bounds on the probably of correctly detecting the integer unknowns, $\mathbf{k}.$
