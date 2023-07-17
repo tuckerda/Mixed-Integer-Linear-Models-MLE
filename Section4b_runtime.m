@@ -54,7 +54,7 @@ for ntrial = 1:num_trials
     Y = repmat(ynoiseless,1,T) + ...
         (1/sqrt(2))*(randn(L,T)+1i*randn(L,T));
     R = Y*Y';%data covariance
-    y = -angle(triu_vec(R));%lower triangular phases
+    y = angle(tril_vec(R));%lower triangular phases
     % MLPUE from phase differences
     tic
     [VhatML,~,pre] = milm_mle(Ac,y/gammarho,Mc,V,Prec,1,pre);
