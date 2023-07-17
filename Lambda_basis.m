@@ -1,4 +1,4 @@
-function [V,Gperp] = form_Lambda_basis(Ac,Mc)
+function [V,Gperp] = Lambda_basis(Ac,Mc)
 % Finds a basis for {x | Mc^(-1)*Ac*x is integer-valued}
 %
 % Input:
