@@ -1,17 +1,23 @@
 # Abbreviated User Guide
-
+## Description
 This repository contains MATLAB code and simulation scripts for the paper "Maximum Likelihood Estimation in Mixed Integer Linear Models." In the paper, we consider a linear model with an observation vector $\mathbf{y} \in \mathbb{R}^m$ that is related to parameter vectors $\mathbf{x} \in \mathbb{R}^n$ and $\mathbf{k} \in \mathbb{Z}^m$ as
 
 $$  \mathbf{y} =  \mathbf{A x} + \mathbf{M} \mathbf{k} + \mathbf{u},$$
 
-with full column rank $\mathbf{A}\in \mathbb{R}^{m \times n}$, nonsingular $\mathbf{M} \in \mathbb{R}^{m \times m}$, and zero-mean Gaussian noise $\mathbf{u}  \in \mathbb{R}^m$. For brevity, the observation vector $\mathbf{y}$ in the accompanying letter is assumed to have been whitened, and thus $\mathbf{u}$ has covariance matrix $\mathbf{I}$. 
+with full column rank $\mathbf{A}\in \mathbb{R}^{m \times n}$, nonsingular $\mathbf{M} \in \mathbb{R}^{m \times m}$, and zero-mean Gaussian noise $\mathbf{u}  \in \mathbb{R}^m$. For brevity, the observation vector $\mathbf{y}$ in the accompanying letter is assumed to have been whitened, and thus $\mathbf{u}$ has covariance matrix $\mathbf{I}$. The unwhitened versions of $\mathbf{y}$, $\mathbf{A}$, $\mathbf{u}$, and $\mathbf{M}$ from the linear model above are denoted by $\mathbf{y}_c$, $\mathbf{A}_c$, $\mathbf{u}_c$, and $\mathbf{M}_c$, respectively. Thus, $\mathbf{y}=\mathbf{\Sigma}^{-1/2}\mathbf{y}_c$, where $\text{cov}(\mathbf{u}_c) = \mathbf{\Sigma}$.
+
+### Relation to multivariate congruence equations
+Note that when $\mathbf{M}_c = \text{diag}(b_1, \ldots, b_m)$ with integer moduli $b_1, \ldots, b_m$, the unwhitened version of the linear model above is equivalent to a set of noisy multivariate congruence equations, given by
+
+$$ \mathbf{y}_c \equiv \mathbf{A}_c \mathbf{x} + \mathbf{u}_c \mod \mathbf{b}, $$
+
 
 ## A Routine for Maximum Likelihood Parameter Estimation in Mixed Integer Linear Models
 The primary function in the repository is `milm_mle`, a routine for maximum likelihood (ML) parameter estimation in mixed integer linear models. The function is called as
 
 ```[x_hat,k_hat,pre] = milm_mle(Ac,yc,Mc,V,Prec,Ns,pre)```
 
-In this repository, the observations are not assumed to be pre-whitened, and we therefore use the suffix "c" in the input variable names `yc,` `Ac,` and `Mc` to denote correspondence to the unwhitened versions of $\mathbf{y}$, $\mathbf{A}$, and $\mathbf{M}$ from the linear model above, respectively. The input `Prec` is the inverse covariance matrix of the unwhitened noise. The matrix input `Ac` has full column rank, and `Mc` is invertible; both `Ac` and `Mc` must have rational entries. The input `V` is a rational $n \times n$ matrix that provides a basis for $\Lambda$, the lattice that describes the periodicity of the likelihood in $\mathbf{x}$. A basis for $\Lambda$ can be constructed as `V = Lambda_basis(Ac,Mc).`
+In this repository, the observations are not assumed to be pre-whitened, and input variable names `yc,` `Ac,` and `Mc` to correspond to the unwhitened $\mathbf{y}_c$, $\mathbf{A}_c$, and $\mathbf{M}_c$ from the linear model above, respectively. The input `Prec` is the inverse covariance matrix of the unwhitened noise. The matrix input `Ac` has full column rank, and `Mc` is invertible; both `Ac` and `Mc` must have rational entries. The input `V` is a rational $n \times n$ matrix that provides a basis for $\Lambda$, the lattice that describes the periodicity of the likelihood in $\mathbf{x}$. A basis for $\Lambda$ can be constructed as `V = Lambda_basis(Ac,Mc).`
 
 Note that multiple values of $\mathbf{x}$ and $\mathbf{k}$ providing large likelihood scores can be returned from `milm_mle` by choosing integer-valued input `Ns` that is greater than one. 
 
