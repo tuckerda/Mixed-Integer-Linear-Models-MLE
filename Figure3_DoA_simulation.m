@@ -8,7 +8,7 @@
 % LICENSE file in the root directory of this source tree. 
 %
 %%
-clearvars; close all;
+clearvars; close all;addpath("./utils/");
 n = 2;
 L = 5; % Number of sensors
 m = L*(L-1)/2; % Number of sensor pairs
