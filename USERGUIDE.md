@@ -31,7 +31,7 @@ The following is an annotated list of the routines included in this repository.
   * `sils_search`     Depth-first sphere decoding, redistributed from [MILES package by X.-W Chang, et al.](https://www.cs.mcgill.ca/~chang/MILES_routine1.php) 
   * `lcms.m`     Finds column-wise positive least common multiple of the non-infinity, non-zero elements in a rational matrix.
   * `LLLReduce` Implementation of the Lenstra-Lenstra-Lovasz (LLL) lattice basis reduction algorithm of Lenstra et al., 1982, as described in  Wubben et al., 2004. 
-  * `awgn_phase_covariance`	Constructs the approximate covariance matrix for phase-difference pairs of $L$ complex-valued observation with iid complex-Gaussian noise
+  * `awgn_phase_covariance`	Constructs the approximate covariance matrix for phase-difference pairs of $L$ complex-valued observation with i.i.d. complex Gaussian noise
   * `lenum`			Find the shortest vector of a lattice using the method by Schnorr & Euchner 1994, redistributed from [implementation by Christian Chapman](https://github.com/enthdegree/lenum.m). 
   * `milm_mle_precompute`	Pre-compute quantities used by `milm_mle`
   * `tril_vec`		Returns vector of the lower triangular elements of a square matrix.
