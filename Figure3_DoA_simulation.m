@@ -24,7 +24,7 @@ positions = [0,0; -4,0; 0,4; 0,-5; 5,0]; % Holdsworth 2005 cross-shaped array
 pair_idx = nchoosek(1:L,2);
 Ac = pi*(positions(pair_idx(:,2),:) - positions(pair_idx(:,1),:));
 Mc = 2*pi*eye(m);
-V = form_Lambda_basis(Ac,Mc);
+V = Lambda_basis(Ac,Mc);
 
 %% Simulate array output 
 sp = 1; % Signal power
