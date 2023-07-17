@@ -19,11 +19,12 @@ For applications in which an estimator is sought for many instances with the sam
 
 ## Function list
 The following is an annotated list of the routines included in this repository.
-* `milm_mle` Routine for maximum likelihood estimation in mixed integer linear models,
-* `Figure3_DoA_simulation` Reproduces direction of arrival estimation example found in Figure 3 of the referenced _IEEE Signal Processing Letters_ paper.
+* `milm_mle` Routine for maximum likelihood estimation in mixed integer linear models
+* `Figure3_DoA_simulation` Reproduces direction of arrival estimation example found in Figure 3 of the referenced _IEEE Signal Processing Letters_ paper
   * `doa_pue`     Estimates direction of arrival (DoA) with maximum likelihood phase unwrapping. 
   * `doa_mle`     Maximum likelihood DoA estimation for linear/planar array by grid search using the complex data
-* `Figure4_PCMRI_simulation` Reproduces PC-MRI example found in Figure 4 of the referenced _IEEE Signal Processing Letters_ paper.
+* `Figure4_PCMRI_simulation` Reproduces PC-MRI example found in Figure 4 of the referenced _IEEE Signal Processing Letters_ paper
+* `Section4b_runtime` Reproduces runtime comparision between MLPUE and MLE from IQ data in Section 4.B of the referenced _IEEE Signal Processing Letters_ paper
 * `Lambda_basis`     Computes a basis for the lattice $\Lambda$
 * Selected utilities
   * `sils_reduction_Q`     Lattice basis reduction, redistributed, with modification, from [MILES package by X.-W Chang, et al.](https://www.cs.mcgill.ca/~chang/MILES_routine1.php)
