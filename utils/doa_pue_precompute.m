@@ -21,5 +21,5 @@ elseif (n==3)
     K = reshape(cat(n+1,K{:}),[],n).';
     pre.K = K;
 end
-[pre.Q_M,pre.R_M,pre.Z_M] = sils_reduction_Q(pre.M); % Q*R = M*Z 
+%[pre.Q_M,pre.R_M,pre.Z_M] = sils_reduction_Q(pre.M); % Q*R = M*Z 
 end
