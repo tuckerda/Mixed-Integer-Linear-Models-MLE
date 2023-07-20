@@ -28,18 +28,19 @@ if (nargin < 7 || isempty(pre))
     pre = milm_mle_precompute(Ac,Mc,V,Prec);
 end
 y = pre.Whiten*yc;
-% Solve min_k || ytilde - B*k ||, with  ytilde = B*M^(-1)*y
+% Solve argmin_k || ytilde - B*k ||, with  ytilde = B*M^(-1)*y
 if m > n
-    % Solve min_ell || Q'*ytilde - R*Z^(-1)*ell ||
+    % Solve argmin_z || Q'*ytilde - R*z ||, where z= Z^(-1)*ell
     Qtytilde = pre.QtBMinv*y;
-    ell_Babai = round(pre.Z*inv(pre.R)*Qtytilde);
+    z_Babai = round(pre.Rinv*Qtytilde);
     % Use the Babai point, if optimal according to Hassibi/Boyd 1998 eqn. (25). Otherwise, use sphere decoding
-    if norm(Qtytilde - pre.R*ell_Babai) <= pre.d_min / 2
-        ell_star = ell_Babai;
+    if norm(Qtytilde - pre.R*z_Babai) <= pre.d_min / 2
+        z_star = z_Babai;
     else
-        ell_star = pre.Z * sils_search(pre.R, Qtytilde, Ns);
+        z_star =  sils_search(pre.R, Qtytilde, Ns);
     end
-    k_star = pre.Gperp*ell_star;
+    %ell_star = pre.Z * z_star; %k_star = pre.Gperp*ell_star;
+    k_star = pre.GperpZ*z_star;
 else
     k_star = zeros([p,1]);
 end
