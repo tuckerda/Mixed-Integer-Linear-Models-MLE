@@ -15,6 +15,7 @@ function [Q,R,H] = LLLReduce(Qin,Rin,delta)
 
 if nargin==1
     [Qin,Rin] = qr(Qin);
+    delta = 0.75;
 elseif nargin ==2
     delta = 0.75;
 end
