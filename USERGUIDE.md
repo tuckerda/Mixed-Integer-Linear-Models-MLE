@@ -27,18 +27,18 @@ For applications in which an estimator is sought for many instances with the sam
 The following is an annotated list of the routines included in this repository.
 * `milm_mle` Routine for maximum likelihood estimation in mixed integer linear models
 * `Figure3_DoA_simulation` Reproduces direction of arrival estimation example found in Figure 3 of the referenced _IEEE Signal Processing Letters_ paper
-  * `doa_pue`     Estimates direction of arrival (DoA) with maximum likelihood phase unwrapping. 
+  * `doa_pue`     Estimates direction of arrival (DoA) with maximum likelihood phase unwrapping
   * `doa_mle`     Maximum likelihood DoA estimation for linear/planar array by grid search using the complex data
 * `Figure4_PCMRI_simulation` Reproduces PC-MRI example found in Figure 4 of the referenced _IEEE Signal Processing Letters_ paper
-* `Section4b_runtime` Reproduces runtime comparision between MLPUE and MLE from IQ data in Section 4.B of the referenced _IEEE Signal Processing Letters_ paper
+* `Section4b_runtime` Reproduces runtime comparision between MLPUE and MLE from IQ data in Section 4B of the referenced _IEEE Signal Processing Letters_ paper
 * `Lambda_basis`     Computes a basis for the lattice $\Lambda$
 * Selected utilities
   * `sils_reduction_Q`     Lattice basis reduction, redistributed, with modification, from [MILES package by X.-W Chang, et al.](https://www.cs.mcgill.ca/~chang/MILES_routine1.php)
   * `sils_search`     Depth-first sphere decoding, redistributed from [MILES package by X.-W Chang, et al.](https://www.cs.mcgill.ca/~chang/MILES_routine1.php) 
-  * `lcms.m`     Finds column-wise positive least common multiple of the non-infinity, non-zero elements in a rational matrix.
-  * `LLLReduce` Implementation of the Lenstra-Lenstra-Lovasz (LLL) lattice basis reduction algorithm of Lenstra et al., 1982, as described in  Wubben et al., 2004. 
+  * `lcms.m`     Finds column-wise positive least common multiple of the non-infinity, non-zero elements in a rational matrix
+  * `LLLReduce` Implementation of the Lenstra-Lenstra-Lovasz (LLL) lattice basis reduction algorithm of Lenstra et al., 1982, as described in  Wubben et al., 2004
   * `awgn_phase_covariance`	Constructs the approximate covariance matrix for phase-difference pairs of $L$ complex-valued observation with i.i.d. complex Gaussian noise
-  * `lenum`			Find the shortest vector of a lattice using the method by Schnorr & Euchner 1994, redistributed from [implementation by Christian Chapman](https://github.com/enthdegree/lenum.m). 
-  * `milm_mle_precompute`	Pre-compute quantities used by `milm_mle`
-  * `tril_vec`		Returns vector of the lower triangular elements of a square matrix.
-  * `Pc_bounds`	Computes upper and lower bounds on the probably of correctly detecting the integer unknowns, $\mathbf{k}.$
+  * `lenum`			Finds the shortest vector of a lattice using the method by Schnorr & Euchner 1994, redistributed from [implementation by Christian Chapman](https://github.com/enthdegree/lenum.m)
+  * `milm_mle_precompute`	Pre-computes quantities used by `milm_mle`
+  * `tril_vec`		Returns vector of the lower triangular elements of a square matrix
+  * `Pc_bounds`	Computes upper and lower bounds on the probably of correctly detecting the integer unknowns, $\mathbf{k}$
