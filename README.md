@@ -3,15 +3,18 @@
 * Shen Zhao, Stanford University (shenzhao@stanford.edu)
 * Lee C. Potter, Ohio State University (potter.36@osu.edu)
 
-This repository contains MATLAB code and simulation scripts for the paper "Maximum Likelihood Estimation in Mixed Integer Linear Models."  If you find our work useful, please use the following citation: 
+This repository contains MATLAB code and simulation scripts for the paper ["Maximum Likelihood Estimation in Mixed Integer Linear Models."](https://ieeexplore.ieee.org/document/10292505)  If you find our work useful, please use the following citation: 
 
 ```
 @ARTICLE{TuckerSPL2023,
   author={Tucker, David and Zhao, Shen and Potter, Lee C.},
   journal={{IEEE} Signal Process. Lett.}, 
   title={Maximum Likelihood Estimation in Mixed Integer Linear Models}, 
-  year={in review},
-  }
+  year={2023},
+  volume={30},
+  pages={1557-1561},
+  doi={10.1109/LSP.2023.3324833}
+}
 ```
 
 Likewise, if you use subroutines redistributed or redistributed with modification here, please cite the appropriate source(s) as given below:
