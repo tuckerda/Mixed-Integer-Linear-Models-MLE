@@ -19,8 +19,8 @@ This repository contains MATLAB code and simulation scripts for the paper ["Maxi
 
 Likewise, if you use subroutines redistributed or redistributed with modification here, please cite the appropriate source(s) as given below:
 
-1. X.-W. Chang, “MILES: MATLAB package for solving mixed integer least squares problems.” http://www.cs.mcgill.ca/∼chang/software/MILES.php, 2006. Last updated: Dec., 2022.
+1. X.-W. Chang, “MILES: MATLAB package for solving mixed integer least squares problems.” [http://www.cs.mcgill.ca/∼chang/software/MILES.php](https://www.cs.mcgill.ca/~chang/MILES.php), 2006. Last updated: Dec., 2022.
 2. S. Zhao, R. Ahmad, and L. C. Potter, “Venc design and velocity estimation for phase contrast MRI,” IEEE Trans. Med. Imag., vol. 41, no. 12, pp. 3712–3724, 2022.
 3. C. Schnorr and M. Euchner, “Lattice basis reduction: Improved practical algorithms and solving subset sum problems,” Math. Prog., vol. 66, p. 181–199, 1994
-4. C. Chapman, "LENUM." https://github.com/enthdegree/lenum.m, 2018.
+4. C. Chapman, "LENUM." [https://github.com/enthdegree/lenum.m](https://github.com/enthdegree/lenum.m), 2018.
 5. D. Wubben, R. Bohnke, V. Kuhn and K.-D. Kammeyer, "Near-maximum-likelihood detection of MIMO systems using MMSE-based lattice-reduction," IEEE Int. Conf. Commun., 2004.
